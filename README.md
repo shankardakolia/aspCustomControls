@@ -4,11 +4,15 @@ ASP Custom Controls for React Native
 
 # Installing Package
 
+```
 npm i asp-react-native-custom-controls
+```
 
 # Installing Dependencies
 
+```
 npm i react-native-device-info
+```
 
 # Controls
 
@@ -20,9 +24,15 @@ How to use ASPTextInput
 
 # Import
 
+```
 import {ASPTextInput} from 'asp-react-native-custom-controls';
+```
 
+# Usage
+
+```
 <ASPTextInput />
+```
 
 # Props
 
