@@ -26,6 +26,7 @@ import {ASPTextInput} from 'asp-react-native-custom-controls';
 
 # Props
 
+```
 placeholder => provide placeholder
 value => map the value from your state
 onChangeText => pass your function for onChangeText
@@ -36,27 +37,15 @@ returnKeyType => provide return key type example 'next' or 'done'
 BorderColor => provide BorderColor for the text input
 BorderFocusColor => provide BorderFocusColor for the text input when it receives focus
 
+```
+
 # Example
 
+```
 import React, {useEffect, useRef, useState} from 'react';
-import {
-View,
-Text,
-StyleSheet,
-SafeAreaView,
-Image,
-} from 'react-native';
-import {
-scaleFontSize,
-scaleHeight,
-verticalScale,
-} from './node_modules/asp-react-native-custom-controls/src/scaling'
-import {
-THEME_BORDER_COLOR,
-THEME_BORDER_ONFOCUS_COLOR,
-THEME_COLOR,
-} from '../utils/Colors';
-// import CustomTextInput from '../components/CustomTextInput';
+import {View,Text,StyleSheet,SafeAreaView,Image} from 'react-native';
+import {scaleFontSize,scaleHeight,verticalScale} from './node_modules/asp-react-native-custom-controls/src/scaling'
+import {THEME_BORDER_COLOR,THEME_BORDER_ONFOCUS_COLOR,THEME_COLOR} from '../utils/Colors';
 import {ASPTextInput} from 'asp-react-native-custom-controls';
 
 const Signup = () => {
@@ -72,71 +61,72 @@ const passwordRef = useRef(null);
 const confirmPasswordRef = useRef(null);
 
 useEffect(() => {
-if (nameRef.current) {
-nameRef.current.focus();
-}
+    if (nameRef.current) {
+    nameRef.current.focus();
+    }
 }, []);
 
 const handleSubmitEditing = ref => {
-if (ref.current) {
-ref.current.focus();
-}
+    if (ref.current) {
+    ref.current.focus();
+    }
 };
 
 return (
 <SafeAreaView style={styles.container}>
-<Image
-source={require('../assets/images/banner.jpg')}
-style={styles.banner}
-/>
-<View style={styles.card}>
-<Text style={styles.title}>Signup</Text>
-<ASPTextInput
-inputRef={nameRef}
-placeholder={'Enter Name'}
-value={name}
-onChangeText={val => {
-setName(val);
-}}
-BorderColor={THEME_BORDER_COLOR}
-BorderFocusColor={THEME_BORDER_ONFOCUS_COLOR}
-onSubmitEditing={() => handleSubmitEditing(emailRef)}
-/>
-</View>
+    <Image
+    source={require('../assets/images/banner.jpg')}
+    style={styles.banner}
+    />
+    <View style={styles.card}>
+        <Text style={styles.title}>Signup</Text>
+        <ASPTextInput
+            inputRef={nameRef}
+            placeholder={'Enter Name'}
+            value={name}
+            onChangeText={val => {
+            setName(val);
+            }}
+            BorderColor={THEME_BORDER_COLOR}
+            BorderFocusColor={THEME_BORDER_ONFOCUS_COLOR}
+            onSubmitEditing={() => handleSubmitEditing(emailRef)}
+        />
+    </View>
 </SafeAreaView>
 );
 };
 
 const styles = StyleSheet.create({
 container: {
-flex: 1,
+    flex: 1,
 },
 banner: {
-width: '100%',
-height: verticalScale(200),
-resizeMode: 'stretch',
+    width: '100%',
+    height: verticalScale(200),
+    resizeMode: 'stretch',
 },
 card: {
-width: '97%',
-alignSelf: 'center',
-height: '100%',
-backgroundColor: 'white',
-position: 'absolute',
-elevation: 5,
-borderTopLeftRadius: 40,
-borderTopRightRadius: 40,
-top: scaleHeight(),
+    width: '97%',
+    alignSelf: 'center',
+    height: '100%',
+    backgroundColor: 'white',
+    position: 'absolute',
+    elevation: 5,
+    borderTopLeftRadius: 40,
+    borderTopRightRadius: 40,
+    top: scaleHeight(),
 },
 title: {
-alignSelf: 'center',
-fontSize: scaleFontSize(25),
-fontWeight: '500',
-color: THEME_COLOR,
-marginTop: 20,
+    alignSelf: 'center',
+    fontSize: scaleFontSize(25),
+    fontWeight: '500',
+    color: THEME_COLOR,
+    marginTop: 20,
 },
 });
 
 export default Signup;
+```
 
 # Note
 
