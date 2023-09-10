@@ -6,7 +6,7 @@ import {
   TextInput,
   TouchableWithoutFeedback,
 } from "react-native";
-import { verticalScale } from "./scaling";
+import { scaleFontSize, verticalScale } from "./scaling";
 
 const ASPTextInput = ({
   placeholder,
@@ -19,9 +19,13 @@ const ASPTextInput = ({
   BorderColor,
   BorderFocusColor,
   fontFamily,
+  fontSize,
+  fontWeight,
 }) => {
   const [isFocused, setIsFocused] = useState(false);
   const style = fontFamily ? { fontFamily } : {};
+  const fontSize = fontSize ? fontSize : 14;
+  const fontWeight = fontWeight ? fontWeight : "500";
 
   const handleFocus = () => {
     setIsFocused(true);
@@ -74,5 +78,7 @@ const styles = StyleSheet.create({
 
   text: {
     paddingTop: verticalScale(12),
+    fontSize: scaleFontSize(fontSize),
+    fontWeight: scaleFontSize(fontWeight),
   },
 });
