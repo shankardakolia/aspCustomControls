@@ -42,7 +42,7 @@ const ASPTextInput = ({
       >
         <TextInput
           ref={inputRef}
-          placeholder={style}
+          placeholder={fontFamily}
           value={value}
           keyboardType={type ? type : "default"}
           onChangeText={(txt) => {
