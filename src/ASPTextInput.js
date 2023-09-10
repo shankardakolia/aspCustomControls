@@ -18,15 +18,10 @@ const ASPTextInput = ({
   returnKeyType,
   BorderColor,
   BorderFocusColor,
-  fontFamily,
-  fontSize,
-  fontWeight,
+  style,
 }) => {
   const [isFocused, setIsFocused] = useState(false);
   fontSize = scaleFontSize(fontSize);
-  const style = fontFamily
-    ? { fontFamily, fontSize, fontWeight }
-    : { fontSize, fontWeight };
 
   const handleFocus = () => {
     setIsFocused(true);
