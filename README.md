@@ -12,6 +12,7 @@ npm i asp-react-native-custom-controls
 
 ```
 npm i react-native-device-info
+Then do pod install cd ios then pod install
 ```
 
 # Controls
