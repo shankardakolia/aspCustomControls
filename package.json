@@ -1,6 +1,6 @@
 {
   "name": "asp-react-native-custom-controls",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "ASP Custom Controls for React Native",
   "main": "index.js",
   "scripts": {
@@ -16,13 +16,13 @@
     "button",
     "custom"
   ],
-  "repository": "https://github.com/shankardakolia/https://github.com/shankardakolia/aspCustomControls",
+  "repository": "https://github.com/shankardakolia/aspCustomControls",
   "author": "SHANKAR DAKOLIA <shankardakolia@gmail.com> (https://github.com/shankardakolia)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/shankardakolia/https://github.com/shankardakolia/aspCustomControls/issues"
+    "url": "https://github.com/shankardakolia/aspCustomControls/issues"
   },
-  "homepage": "https://github.com/shankardakolia/https://github.com/shankardakolia/aspCustomControls#readme",
+  "homepage": "https://github.com/shankardakolia/aspCustomControls#readme",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   }
