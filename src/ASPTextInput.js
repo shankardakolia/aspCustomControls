@@ -6,7 +6,7 @@ import {
   TextInput,
   TouchableWithoutFeedback,
 } from "react-native";
-import { scaleFontSize, verticalScale } from "./scaling";
+import { verticalScale } from "./scaling";
 
 const ASPTextInput = ({
   placeholder,
