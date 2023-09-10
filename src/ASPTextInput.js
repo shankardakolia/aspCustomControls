@@ -42,7 +42,7 @@ const ASPTextInput = ({
       >
         <TextInput
           ref={inputRef}
-          placeholder={placeholder}
+          placeholder={style}
           value={value}
           keyboardType={type ? type : "default"}
           onChangeText={(txt) => {
@@ -74,6 +74,5 @@ const styles = StyleSheet.create({
 
   text: {
     paddingTop: verticalScale(12),
-    fontFamily: fontFamily,
   },
 });
