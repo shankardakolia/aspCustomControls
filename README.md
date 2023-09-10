@@ -47,6 +47,7 @@ onSubmitEditing => provide your function for handling submit editing
 returnKeyType => provide return key type example 'next' or 'done'
 BorderColor => provide BorderColor for the text input
 BorderFocusColor => provide BorderFocusColor for the text input when it receives focus
+style => styles object(optional) example {fontFamily:'Ubuntu',fontSize:18,fontWeight:'500'}
 
 ```
 
@@ -83,6 +84,12 @@ const handleSubmitEditing = ref => {
     }
 };
 
+const textStyle = {
+  fontFamily: 'Poppins',
+  fontSize: scaleFontSize(18),
+  fontWeight: '500',
+};
+
 return (
 <SafeAreaView style={styles.container}>
     <Image
@@ -98,6 +105,7 @@ return (
             onChangeText={val => {
             setName(val);
             }}
+            style={textStyle}
             BorderColor={THEME_BORDER_COLOR}
             BorderFocusColor={THEME_BORDER_ONFOCUS_COLOR}
             onSubmitEditing={() => handleSubmitEditing(emailRef)}
