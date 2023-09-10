@@ -24,8 +24,8 @@ const ASPTextInput = ({
 }) => {
   const [isFocused, setIsFocused] = useState(false);
   const style = fontFamily ? { fontFamily } : {};
-  const fontSize = fontSize ? fontSize : 14;
-  const fontWeight = fontWeight ? fontWeight : "500";
+  const _fontSize = fontSize ? fontSize : 14;
+  const _fontWeight = fontWeight ? fontWeight : "500";
 
   const handleFocus = () => {
     setIsFocused(true);
@@ -78,7 +78,7 @@ const styles = StyleSheet.create({
 
   text: {
     paddingTop: verticalScale(12),
-    fontSize: scaleFontSize(fontSize),
-    fontWeight: scaleFontSize(fontWeight),
+    fontSize: scaleFontSize(_fontSize),
+    fontWeight: _fontWeight,
   },
 });
