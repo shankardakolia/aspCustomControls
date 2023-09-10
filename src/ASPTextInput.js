@@ -18,8 +18,10 @@ const ASPTextInput = ({
   returnKeyType,
   BorderColor,
   BorderFocusColor,
+  fontFamily,
 }) => {
   const [isFocused, setIsFocused] = useState(false);
+  const style = fontFamily ? { fontFamily } : {};
 
   const handleFocus = () => {
     setIsFocused(true);
@@ -46,7 +48,7 @@ const ASPTextInput = ({
           onChangeText={(txt) => {
             onChangeText(txt);
           }}
-          style={styles.text}
+          style={[styles.text, style]}
           onFocus={handleFocus}
           onBlur={handleBlur}
           onSubmitEditing={onSubmitEditing}
@@ -72,5 +74,6 @@ const styles = StyleSheet.create({
 
   text: {
     paddingTop: verticalScale(12),
+    fontFamily: fontFamily,
   },
 });
