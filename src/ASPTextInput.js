@@ -21,7 +21,6 @@ const ASPTextInput = ({
   style,
 }) => {
   const [isFocused, setIsFocused] = useState(false);
-  fontSize = scaleFontSize(fontSize);
 
   const handleFocus = () => {
     setIsFocused(true);
