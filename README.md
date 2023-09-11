@@ -11,7 +11,7 @@ npm i asp-react-native-custom-controls
 # Installing Dependencies
 
 ```
-npm i react-native-device-info
+npm i react-native-responsive-screen
 Then do pod install cd ios then pod install
 ```
 
@@ -55,77 +55,146 @@ style => styles object(optional) example {fontFamily:'Ubuntu',fontSize:18,fontWe
 
 ```
 import React, {useEffect, useRef, useState} from 'react';
-import {View,Text,StyleSheet,SafeAreaView,Image} from 'react-native';
-import {scaleFontSize,scaleHeight,verticalScale} from './node_modules/asp-react-native-custom-controls/src/scaling'
-import {THEME_BORDER_COLOR,THEME_BORDER_ONFOCUS_COLOR,THEME_COLOR} from '../utils/Colors';
+import {
+  View,
+  Text,
+  StyleSheet,
+  SafeAreaView,
+  Image,
+  ScrollView,
+  TextInput,
+  Platform,
+} from 'react-native';
+
+import {
+  THEME_BORDER_COLOR,
+  THEME_BORDER_ONFOCUS_COLOR,
+  THEME_COLOR,
+  THEME_TITTLE_COLOR,
+} from '../utils/Colors';
+
 import {ASPTextInput} from 'asp-react-native-custom-controls';
 
+import {heightPercentageToDP as hp} from 'react-native-responsive-screen';
+
 const Signup = () => {
-const [name, setName] = useState('');
-const [email, setEmail] = useState('');
-const [mobile, setMobile] = useState('');
-const [password, setPassword] = useState('');
-const [confirmPassword, setConfirmPassword] = useState('');
-const nameRef = useRef(null);
-const emailRef = useRef(null);
-const mobileRef = useRef(null);
-const passwordRef = useRef(null);
-const confirmPasswordRef = useRef(null);
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [mobile, setMobile] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const nameRef = useRef(null);
+  const emailRef = useRef(null);
+  const mobileRef = useRef(null);
+  const passwordRef = useRef(null);
+  const confirmPasswordRef = useRef(null);
 
-useEffect(() => {
+  useEffect(() => {
     if (nameRef.current) {
-    nameRef.current.focus();
+      nameRef.current.focus();
     }
-}, []);
+  }, []);
 
-const handleSubmitEditing = ref => {
+  const handleSubmitEditing = ref => {
     if (ref.current) {
-    ref.current.focus();
+      ref.current.focus();
     }
-};
+  };
 
-const textStyle = {
-  fontFamily: 'Poppins',
-  fontSize: scaleFontSize(18),
-  fontWeight: '500',
-};
+  return (
+    <SafeAreaView style={styles.container}>
+      <Image
+        source={require('../assets/images/banner.jpg')}
+        style={styles.banner}
+      />
 
-return (
-<SafeAreaView style={styles.container}>
-    <Image
-    source={require('../assets/images/banner.jpg')}
-    style={styles.banner}
-    />
-    <View style={styles.card}>
-        <Text style={styles.title}>Signup</Text>
-        <ASPTextInput
+      <View style={styles.card}>
+        <ScrollView>
+          <Text style={styles.title}>Register</Text>
+          <ASPTextInput
             inputRef={nameRef}
             placeholder={'Enter Name'}
             value={name}
             onChangeText={val => {
-            setName(val);
+              setName(val);
             }}
             style={textStyle}
             BorderColor={THEME_BORDER_COLOR}
             BorderFocusColor={THEME_BORDER_ONFOCUS_COLOR}
             onSubmitEditing={() => handleSubmitEditing(emailRef)}
-        />
-    </View>
-</SafeAreaView>
-);
+          />
+          <ASPTextInput
+            inputRef={emailRef}
+            placeholder={'Enter Email'}
+            value={email}
+            onChangeText={val => {
+              setEmail(val);
+            }}
+            type={'email-address'}
+            style={textStyle}
+            BorderColor={THEME_BORDER_COLOR}
+            BorderFocusColor={THEME_BORDER_ONFOCUS_COLOR}
+            onSubmitEditing={() => handleSubmitEditing(mobileRef)}
+          />
+          <ASPTextInput
+            inputRef={mobileRef}
+            placeholder={'Enter Mobile'}
+            value={mobile}
+            onChangeText={val => {
+              setMobile(val);
+            }}
+            type={'number-pad'}
+            style={textStyle}
+            returnKeyType={'next'}
+            BorderColor={THEME_BORDER_COLOR}
+            BorderFocusColor={THEME_BORDER_ONFOCUS_COLOR}
+            onSubmitEditing={() => handleSubmitEditing(passwordRef)}
+          />
+          <ASPTextInput
+            inputRef={passwordRef}
+            placeholder={'Enter Password'}
+            value={password}
+            onChangeText={val => {
+              setPassword(val);
+            }}
+            style={textStyle}
+            BorderColor={THEME_BORDER_COLOR}
+            BorderFocusColor={THEME_BORDER_ONFOCUS_COLOR}
+            onSubmitEditing={() => handleSubmitEditing(confirmPasswordRef)}
+          />
+          <ASPTextInput
+            inputRef={confirmPasswordRef}
+            placeholder={'Enter Confirm Password'}
+            value={confirmPassword}
+            onChangeText={val => {
+              setConfirmPassword(val);
+            }}
+            style={textStyle}
+            BorderColor={THEME_BORDER_COLOR}
+            BorderFocusColor={THEME_BORDER_ONFOCUS_COLOR}
+          />
+        </ScrollView>
+      </View>
+    </SafeAreaView>
+  );
 };
-
+const textStyle = {
+  fontFamily: 'Poppins',
+  fontSize: hp('1.8%'),
+  fontWeight: '500',
+};
 const styles = StyleSheet.create({
-container: {
+  container: {
     flex: 1,
-},
-banner: {
+  },
+  banner: {
     width: '100%',
-    height: verticalScale(200),
-    resizeMode: 'stretch',
-},
-card: {
-    width: '97%',
+    height: Platform.OS === 'ios' ? hp('35%') : hp('38%'),
+    // height: verticalScale(195),
+    resizeMode: 'cover',
+  },
+  card: {
+    width: '100%',
     alignSelf: 'center',
     height: '100%',
     backgroundColor: 'white',
@@ -133,18 +202,21 @@ card: {
     elevation: 5,
     borderTopLeftRadius: 40,
     borderTopRightRadius: 40,
-    top: scaleHeight(),
-},
-title: {
+    top: Platform.OS === 'ios' ? hp('33.5%') : hp('32%'),
+  },
+  title: {
     alignSelf: 'center',
-    fontSize: scaleFontSize(25),
-    fontWeight: '500',
-    color: THEME_COLOR,
+    fontFamily: 'Ubuntu',
+    fontSize: hp('2.5%'),
+    // fontSize: scaleFontSize(25),
+    fontWeight: Platform.OS === 'ios' ? '600' : '700',
+    color: THEME_TITTLE_COLOR,
     marginTop: 20,
-},
+  },
 });
 
 export default Signup;
+
 ```
 
 # Note

@@ -6,7 +6,10 @@ import {
   TextInput,
   TouchableWithoutFeedback,
 } from "react-native";
-import { verticalScale } from "./scaling";
+import {
+  heightPercentageToDP as hp,
+  widthPercentageToDP as wp,
+} from "react-native-responsive-screen";
 
 const ASPTextInput = ({
   placeholder,
@@ -63,15 +66,15 @@ export default ASPTextInput;
 const styles = StyleSheet.create({
   input: {
     width: Dimensions.get("window").width - 50,
-    height: verticalScale(40),
+    height: hp("6%"),
     borderWidth: 1,
-    borderRadius: 10,
+    borderRadius: wp("3%"),
     alignSelf: "center",
-    marginTop: 20,
-    paddingLeft: 10,
+    marginTop: hp("2.5%"),
+    paddingLeft: wp("2.5%"),
   },
 
   text: {
-    paddingTop: verticalScale(12),
+    paddingTop: hp("1.2%"),
   },
 });
