@@ -219,8 +219,26 @@ export default Signup;
 
 ```
 
-# Note
+# Controls
 
-scaling.js utility located inside node_modules/asp-react-native-custom-controls/src/
-is optional. It is a scaling utility for different screen sizes of ios and android phones.
-You can use it for better responsive designs
+2. ASPButton
+
+# Import
+
+```
+import {ASPButton} from 'asp-react-native-custom-controls';
+```
+
+# Usage
+
+```
+<ASPButton />
+```
+
+# Props
+
+```
+style => styles object(optional) example {fontFamily:'Ubuntu',fontSize:18,fontWeight:'500'}
+title => Button Name if you don't provide it will set it to 'Please Set Title'
+onClicked => pass on your onPress function onClicked={()=>{console.log('Button clicked)}}
+```
