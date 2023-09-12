@@ -6,7 +6,6 @@ import {
 } from "react-native-responsive-screen";
 
 const ASPButton = ({ style, onClicked, title }) => {
-  console.log(title);
   if (!style.backgroundColor) {
     style.backgroundColor = "#000000";
   }
