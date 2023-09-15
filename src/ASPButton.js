@@ -5,13 +5,15 @@ import {
   widthPercentageToDP as wp,
 } from "react-native-responsive-screen";
 
-const ASPButton = ({ style, onClicked, title }) => {
-  if (!style.backgroundColor) {
-    style.backgroundColor = "#000000";
+const ASPButton = ({ btnStyle, btnTitleSStyle, onClicked, title }) => {
+  if (!btnStyle.backgroundColor) {
+    btnStyle.backgroundColor = "#000000";
   }
   return (
-    <TouchableOpacity style={[styles.btn, style]} onPress={onClicked}>
-      <Text style={styles.btnText}>{title ? title : "Please Set Title"}</Text>
+    <TouchableOpacity style={[styles.btn, btnStyle]} onPress={onClicked}>
+      <Text style={[styles.btnText, btnTitleSStyle]}>
+        {title ? title : "Please Set Title"}
+      </Text>
     </TouchableOpacity>
   );
 };
