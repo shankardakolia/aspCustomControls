@@ -45,6 +45,7 @@ const ASPTextInput = ({
         <TextInput
           ref={inputRef}
           placeholder={placeholder}
+          placeholderTextColor={"#5D6D7E"}
           value={value}
           keyboardType={type ? type : "default"}
           onChangeText={(txt) => {
