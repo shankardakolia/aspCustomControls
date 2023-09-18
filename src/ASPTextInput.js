@@ -89,10 +89,11 @@ const styles = StyleSheet.create({
     marginTop: hp("2.5%"),
     paddingLeft: wp("2.5%"),
     flexDirection: "row",
+    alignItems: "center",
   },
 
   text: {
-    paddingTop: hp("1.2%"),
+    // paddingTop: hp('1%'),
   },
   icon: {
     marginLeft: "auto",
