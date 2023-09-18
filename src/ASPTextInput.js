@@ -1,10 +1,12 @@
 import React, { useState } from "react";
+import Icon from "react-native-vector-icons/dist/AntDesign";
 import {
   View,
   StyleSheet,
   Dimensions,
   TextInput,
   TouchableWithoutFeedback,
+  TouchableOpacity,
 } from "react-native";
 import {
   heightPercentageToDP as hp,
@@ -14,6 +16,7 @@ import {
 const ASPTextInput = ({
   placeholder,
   value,
+  secureTextEntry,
   onChangeText,
   type,
   inputRef,
@@ -24,6 +27,7 @@ const ASPTextInput = ({
   style,
 }) => {
   const [isFocused, setIsFocused] = useState(false);
+  const [secureEntry, setSecureEntry] = useState(secureTextEntry);
 
   const handleFocus = () => {
     setIsFocused(true);
@@ -54,9 +58,20 @@ const ASPTextInput = ({
           style={[styles.text, style]}
           onFocus={handleFocus}
           onBlur={handleBlur}
+          secureTextEntry={secureEntry}
           onSubmitEditing={onSubmitEditing}
           returnKeyType={returnKeyType}
         />
+        {secureTextEntry && (
+          <TouchableOpacity
+            style={styles.icon}
+            onPress={() => {
+              setSecureEntry(!secureEntry);
+            }}
+          >
+            <Icon name="eye" size={hp("3%")} color={"#5D6D7E"} />
+          </TouchableOpacity>
+        )}
       </View>
     </TouchableWithoutFeedback>
   );
@@ -73,9 +88,15 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     marginTop: hp("2.5%"),
     paddingLeft: wp("2.5%"),
+    flexDirection: "row",
   },
 
   text: {
     paddingTop: hp("1.2%"),
+  },
+  icon: {
+    marginLeft: "auto",
+    justifyContent: "center",
+    marginRight: 10,
   },
 });
