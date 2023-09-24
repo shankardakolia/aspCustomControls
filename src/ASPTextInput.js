@@ -25,6 +25,7 @@ const ASPTextInput = ({
   BorderColor,
   BorderFocusColor,
   style,
+  inputAccessoryViewID,
 }) => {
   const [isFocused, setIsFocused] = useState(false);
   const [secureEntry, setSecureEntry] = useState(secureTextEntry);
@@ -61,6 +62,7 @@ const ASPTextInput = ({
           secureTextEntry={secureEntry}
           onSubmitEditing={onSubmitEditing}
           returnKeyType={returnKeyType}
+          inputAccessoryViewID={inputAccessoryViewID}
         />
         {secureTextEntry && (
           <TouchableOpacity
